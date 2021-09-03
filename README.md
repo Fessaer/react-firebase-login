@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Getting Started with Create React App (React + Redux)
 
 Login: testing@gmail.com
 Paswword: 123456
