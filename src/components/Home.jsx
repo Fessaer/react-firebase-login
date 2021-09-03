@@ -2,13 +2,13 @@
 import React from "react";
 import app from "../base/firebaseIndex";
 import { Button } from "antd";
-import RandM from "./RandM";
+import RandM from "./ram/RandM";
 import Contacts from "./contacts/Contacts";
 import ContactList from "./contacts/ContactList";
 
 const Home = () => {
   return (
-    <div style={{ padding: "10px", backgroundColor: "#bfbfbf" }}>
+    <div style={{ padding: "10px" }}>
       <Button onClick={() => app.auth().signOut()} type="primary">
         Выйти
       </Button>

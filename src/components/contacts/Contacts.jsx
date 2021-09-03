@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import { getData } from "../../store/contacts/actions";
 import AddContact from "./AddContact";
+import SearchComponent from "./SearchComponent";
 
 const Contacts = () => {
   const dispatch = useDispatch();
@@ -11,12 +11,16 @@ const Contacts = () => {
     dispatch(getData());
   }, []);
 
-  const data = useSelector((state) => state);
-  console.log(data);
-
   return (
-    <div style={{ margin: "10px 0px" }}>
+    <div
+      style={{
+        margin: "10px 0px",
+        display: "flex",
+        justifyContent: "space-between",
+      }}
+    >
       <AddContact />
+      <SearchComponent />
     </div>
   );
 };

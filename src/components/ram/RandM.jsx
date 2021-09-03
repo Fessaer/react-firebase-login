@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
-import { fetchData } from "../store/rickAndMorty/actions";
+import { fetchData } from "../../store/rickAndMorty/actions";
 import { useSelector } from "react-redux";
 import { List, Card } from "antd";
 

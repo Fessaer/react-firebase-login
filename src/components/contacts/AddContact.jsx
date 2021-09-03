@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from "react";
-import { Modal, Button, notification, Space, Input } from "antd";
+import React, { useState, useEffect } from "react";
+import { Modal, Button, notification, Input } from "antd";
 import { setData } from "../../store/contacts/actions";
 import { useDispatch } from "react-redux";
 
@@ -11,6 +11,17 @@ const AddContact = () => {
     location: "",
     phoneNumber: "",
   });
+  const [disabledButton, setDisableButton] = useState(true);
+
+  useEffect(() => {
+    if (
+      state.name !== "" &&
+      state.location !== "" &&
+      state.phoneNumber !== ""
+    ) {
+      setDisableButton(false);
+    }
+  }, [state]);
 
   const dispatch = useDispatch();
 
@@ -21,7 +32,6 @@ const AddContact = () => {
   const handleOk = () => {
     setIsModalVisible(false);
     openNotificationWithIcon("success");
-    const addData = JSON.stringify(state);
     if (
       state.name !== "" &&
       state.location !== "" &&
@@ -37,16 +47,13 @@ const AddContact = () => {
   };
 
   const handleName = (e) => {
-    console.log(e.target.value);
     setState((prev) => ({ ...prev, name: e.target.value }));
   };
   const handleLocation = (e) => {
-    console.log(e.target.value);
     setState((prev) => ({ ...prev, location: e.target.value }));
   };
 
   const handlePhoneNumber = (e) => {
-    console.log(e.target.value);
     setState((prev) => ({ ...prev, phoneNumber: e.target.value }));
   };
 
@@ -66,6 +73,8 @@ const AddContact = () => {
         visible={isModalVisible}
         onOk={handleOk}
         onCancel={handleCancel}
+        destroyOnClose={true}
+        okButtonProps={{ disabled: disabledButton }}
       >
         <Input
           onChange={handleName}
