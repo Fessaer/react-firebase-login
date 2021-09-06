@@ -7,7 +7,7 @@ Paswword: 123456
 
 2) в терминале прописать (cd react-firebase-login)
 
-3) npm install
+3) npm install (если выдаёт ошибку, удалить файл package-lock.json)
 
 4) npm run server
 
