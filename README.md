@@ -3,8 +3,12 @@
 Login: testing@gmail.com
 Paswword: 123456
 
-1) npm install
+1) git clone https://github.com/Fessaer/react-firebase-login.git
 
-2) npm run server
+2) в терминале прописать (cd react-firebase-login)
 
-3) npm run start
+3) npm install
+
+4) npm run server
+
+5) npm run start
